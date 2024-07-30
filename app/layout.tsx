@@ -18,11 +18,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+
   return (
     <html lang="en">
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-HMEVTJQSMX"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -30,8 +32,9 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            gtag('config', 'G-HMEVTJQSMX');
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
       </head>
