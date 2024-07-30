@@ -3,7 +3,7 @@ import Hero from "@/components/main/Hero";
 import Projects from "@/components/main/Projects";
 import Skills from "@/components/main/Skills";
 import Experience from "@/components/main/Experience"; // Adjust the path if necessary
-import Gallery from "@/components/main/gallery"; // Adjust the path if necessary
+
 import Image from "next/image"; 
 
 
